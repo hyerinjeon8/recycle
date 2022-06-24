@@ -72,7 +72,6 @@
             maxPredictions = model.getTotalClasses();
 
             // append elements to the DOM
-            document.getElementById("webcam-container").appendChild(webcam.canvas);
             labelContainer = document.getElementById("label-container");
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
@@ -82,7 +81,6 @@
         // run the webcam image through the image model
         async function predict() {
             // predict can take in an image, video or canvas html element
-            const prediction = await model.predict(webcam.canvas);
 
             if (prediction[0].probability > 0.7) {
                 labelContainer.childNodes[0].innerHTML = "재활용이 가능한 사물(물건)인 것 같습니다."
