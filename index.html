@@ -21,6 +21,20 @@
     <button type="button" onclick="init()">시작하기</button>
     <button type="button" onclick="predict()">결과확인</button>
 
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <div class="file-upload">
+        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add
+            이미지</button>
+
+        <div class="file-upload-content">
+            <img class="file-upload-image" id="my-image" src="#" alt="your image" />
+            <div class="image-title-wrap">
+                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
+                        class="image-title">Uploaded Image</span></button>
+            </div>
+        </div>
+    </div>
+
     <div>Teachable Machine Image Model</div>
     <button type="button" onclick="init()">Start</button>
     <div id="webcam-container"></div>
