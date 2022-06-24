@@ -23,20 +23,19 @@
 
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <div class="file-upload">
-        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add
-            이미지</button>
+        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">
+            이미지 추가</button>
 
         <div class="file-upload-content">
             <img class="file-upload-image" id="my-image" src="#" alt="your image" />
             <div class="image-title-wrap">
-                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
-                        class="image-title">Uploaded Image</span></button>
+                <button type="button" onclick="removeUpload()" class="remove-image">삭제 <span
+                        class="image-title">이미지 업로드</span></button>
             </div>
         </div>
     </div>
 
-    <div>Teachable Machine Image Model</div>
-    <button type="button" onclick="init()">Start</button>
+
     <div id="webcam-container"></div>
     <div id="label-container"></div>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -74,20 +73,8 @@
         async function predict() {
             // predict can take in an image, video or canvas html element
             const prediction = await model.predict(webcam.canvas);
-            for (let i = 0; i < maxPredictions; i++) {
-                const classPrediction =
-                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                labelContainer.childNodes[i].innerHTML = classPrediction;
-            }
-        }
 
-            // run the webcam image through the image model
-            async function predict() {
-                // predict can take in an image, video or canvas html element
-                var image = document.getElementById("my-image")
-                const prediction = await model.predict(image, false);
-
-                if (prediction[0].probability > 0.7) {
+            if (prediction[0].probability > 0.7) {
                     labelContainer.childNodes[0].innerHTML = "재활용이 가능한 사물(물건)인 것 같습니다."
                     labelContainer.childNodes[1].innerHTML = ""
                 }
@@ -105,6 +92,7 @@
                 //prediction[i].className + ": " + prediction[i].probability.toFixed(2);
                 //labelContainer.childNodes[i].innerHTML = classPrediction;
                 //}
+
             }
 
     </script>
