@@ -30,8 +30,8 @@
         <div class="file-upload-content">
             <img class="file-upload-image" id="my-image" src="#" alt="your image" />
             <div class="image-title-wrap">
-                <button type="button" onclick="removeUpload()" class="remove-image">삭제 <span
-                        class="image-title">이미지 업로드</span></button>
+                <button type="button" onclick="removeUpload()" class="remove-image">삭제 <span class="image-title">이미지
+                        업로드</span></button>
             </div>
         </div>
     </div>
@@ -76,25 +76,25 @@
             const prediction = await model.predict(webcam.canvas);
 
             if (prediction[0].probability > 0.7) {
-                    labelContainer.childNodes[0].innerHTML = "재활용이 가능한 사물(물건)인 것 같습니다."
-                    labelContainer.childNodes[1].innerHTML = ""
-                }
-                else if (prediction[1].probability > 0.7) {
-                    labelContainer.childNodes[0].innerHTML = "재활용할 수 없는 사물(물건)인 것 같습니다."
-                    labelContainer.childNodes[1].innerHTML = ""
-                }
-                else {
-                    labelContainer.childNodes[0].innerHTML = "모르겠습니다."
-                    labelContainer.childNodes[1].innerHTML = "다시 시도해도 안되면 다른 사진으로 바꿔주세요."
-                }
-
-                //for (let i = 0; i < maxPredictions; i++) {
-                //const classPrediction =
-                //prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                //labelContainer.childNodes[i].innerHTML = classPrediction;
-                //}
-
+                labelContainer.childNodes[0].innerHTML = "재활용이 가능한 사물(물건)인 것 같습니다."
+                labelContainer.childNodes[1].innerHTML = ""
             }
+            else if (prediction[1].probability > 0.7) {
+                labelContainer.childNodes[0].innerHTML = "재활용할 수 없는 사물(물건)인 것 같습니다."
+                labelContainer.childNodes[1].innerHTML = ""
+            }
+            else {
+                labelContainer.childNodes[0].innerHTML = "모르겠습니다."
+                labelContainer.childNodes[1].innerHTML = "다시 시도해도 안되면 다른 사진으로 바꿔주세요."
+            }
+
+            //for (let i = 0; i < maxPredictions; i++) {
+            //const classPrediction =
+            //prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            //labelContainer.childNodes[i].innerHTML = classPrediction;
+            //}
+
+        }
 
     </script>
     <script>function readURL(input) {
